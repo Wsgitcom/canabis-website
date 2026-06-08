@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เติมความสุข ดับความเครียด · ร้านกัญชาคัดเกรด</title>
+<meta name="description" content="ร้านกัญชาคัดเกรดพรีเมียมสำหรับผู้ใหญ่ 20+ ดอกแห้งคุณภาพและอุปกรณ์ครบครัน ปรึกษาฟรี ส่งทั่วไทย ทักไลน์ได้เลย">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#1b3326;
+  --forest-2:#244534;
+  --leaf:#3f7d44;
+  --leaf-2:#5fa356;
+  --cream:#f5f1e6;
+  --cream-2:#ece5d2;
+  --paper:#fbf9f2;
+  --ink:#1c241b;
+  --muted:#5d6a57;
+  --line:#06c755;
+  --amber:#c08a3b;
+  --stroke:#dcd6c3;
+  --shadow:0 18px 40px -22px rgba(27,51,38,.45);
+  --display:'Noto Serif Thai', serif;
+  --sans:'IBM Plex Sans Thai', system-ui, sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:var(--display);line-height:1.18;margin:0;font-weight:700;letter-spacing:-.01em;}
+p{margin:0;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+section{position:relative;}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:16px;border-radius:999px;padding:13px 24px;cursor:pointer;border:1.5px solid transparent;transition:transform .14s ease, box-shadow .14s ease, background .14s;white-space:nowrap;}
+.btn:active{transform:translateY(1px);}
+.btn-line{background:var(--line);color:#fff;box-shadow:0 10px 22px -10px rgba(6,199,85,.7);}
+.btn-line:hover{transform:translateY(-2px);box-shadow:0 16px 28px -12px rgba(6,199,85,.75);}
+.btn-ghost{background:transparent;color:var(--forest);border-color:var(--stroke);}
+.btn-ghost:hover{background:#fff;border-color:var(--leaf);}
+.btn-dark{background:var(--forest);color:#fff;}
+.btn-dark:hover{transform:translateY(-2px);background:var(--forest-2);}
+.line-ic{width:21px;height:21px;flex:0 0 auto;}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;transition:background .3s, box-shadow .3s, padding .3s;padding:18px 0;}
+.nav.solid{background:rgba(251,249,242,.88);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--stroke);padding:11px 0;}
+.nav .wrap{display:flex;align-items:center;gap:18px;}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:21px;color:var(--forest);white-space:nowrap;}
+.logo .mark{width:34px;height:34px;border-radius:9px;background:var(--leaf);display:grid;place-items:center;color:#fff;}
+.nav-links{display:flex;gap:26px;margin-left:auto;font-weight:500;color:var(--forest);}
+.nav-links a{position:relative;padding:4px 0;font-size:15.5px;white-space:nowrap;}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--leaf);transition:width .2s;}
+.nav-links a:hover::after{width:100%;}
+.nav .btn{padding:9px 18px;font-size:15px;}
+.nav-cta-wrap{margin-left:8px;}
+.burger{display:none;}
+
+/* ---------- hero ---------- */
+.hero{padding:120px 0 56px;overflow:hidden;background:
+  radial-gradient(110% 120% at 88% 0%, #eef3e6 0%, transparent 55%),
+  linear-gradient(180deg,#f7f4ec,#fbf9f2);}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .92fr;gap:48px;align-items:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--stroke);color:var(--leaf);font-weight:600;font-size:13.5px;letter-spacing:.02em;padding:6px 14px;border-radius:999px;box-shadow:var(--shadow);white-space:nowrap;}
+.eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--line);box-shadow:0 0 0 0 rgba(6,199,85,.5);animation:pulse 2s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(6,199,85,.5);}70%{box-shadow:0 0 0 9px rgba(6,199,85,0);}100%{box-shadow:0 0 0 0 rgba(6,199,85,0);}}
+.hero h1{font-size:clamp(38px,5.4vw,62px);color:var(--forest);margin:18px 0 0;}
+.hero h1 .hl{color:var(--leaf);position:relative;}
+.hero .lead{font-size:18.5px;color:var(--muted);margin:18px 0 26px;max-width:30em;}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+.hero-badges{display:flex;gap:20px;flex-wrap:wrap;margin-top:26px;}
+.hbadge{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--forest);font-weight:500;}
+.hbadge .tick{width:26px;height:26px;border-radius:50%;background:var(--cream-2);display:grid;place-items:center;color:var(--leaf);flex:0 0 auto;}
+
+/* hero visual */
+.hero-visual{position:relative;}
+.hero-img{width:100%;height:480px;border-radius:26px;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--stroke);}
+.float-card{position:absolute;background:#fff;border:1px solid var(--stroke);border-radius:16px;padding:13px 16px;box-shadow:var(--shadow);display:flex;align-items:center;gap:11px;font-weight:600;}
+.float-card.rev{bottom:24px;left:-26px;font-size:14px;}
+.float-card.rate{top:26px;right:-18px;}
+.float-card .big{font-family:var(--display);font-size:22px;color:var(--leaf);}
+.avatars{display:flex;}
+.avatars span{width:30px;height:30px;border-radius:50%;border:2px solid #fff;background:var(--cream-2);margin-left:-9px;}
+.avatars span:first-child{margin-left:0;}
+.leaf-deco{position:absolute;opacity:.5;pointer-events:none;color:var(--leaf-2);}
+
+/* ---------- image placeholders (swap for real <img>) ---------- */
+.img-fill{width:100%;height:100%;background:var(--cream-2);display:grid;place-items:center;gap:8px;color:var(--leaf);text-align:center;padding:14px;overflow:hidden;}
+.img-fill img{width:100%;height:100%;object-fit:cover;}
+.img-fill .ph-ic{opacity:.4;}
+.img-fill .ph-cap{font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--muted);max-width:90%;}
+
+/* ---------- trust strip ---------- */
+.strip{background:var(--forest);color:#dfe9d8;}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;padding:18px 32px;}
+.strip .item{display:flex;align-items:center;gap:11px;font-size:15px;}
+.strip .num{font-family:var(--display);font-size:24px;color:#fff;}
+.strip .ic{color:var(--leaf-2);}
+
+/* ---------- generic section heads ---------- */
+.head{text-align:center;max-width:680px;margin:0 auto 34px;}
+.kicker{font-weight:600;color:var(--leaf);letter-spacing:.08em;text-transform:uppercase;font-size:13px;}
+.head h2{font-size:clamp(28px,3.6vw,40px);color:var(--forest);margin:10px 0 12px;}
+.head p{color:var(--muted);}
+.pad{padding:60px 0;}
+
+/* ---------- why us ---------- */
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.feat{background:#fff;border:1px solid var(--stroke);border-radius:18px;padding:24px 22px;transition:transform .16s, box-shadow .16s;}
+.feat:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.feat .ficon{width:52px;height:52px;border-radius:14px;background:var(--cream-2);display:grid;place-items:center;color:var(--leaf);margin-bottom:16px;}
+.feat h3{font-size:19px;color:var(--forest);margin-bottom:7px;}
+.feat p{font-size:14.5px;color:var(--muted);line-height:1.55;}
+
+/* ---------- products ---------- */
+.prod-sec{background:linear-gradient(180deg,var(--cream) 0%,#f4efe1 100%);}
+.filters{display:flex;justify-content:center;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+.filter{font-family:var(--sans);font-weight:600;font-size:15px;border:1.5px solid var(--stroke);background:#fff;color:var(--forest);padding:9px 20px;border-radius:999px;cursor:pointer;transition:.15s;}
+.filter[aria-pressed="true"]{background:var(--forest);color:#fff;border-color:var(--forest);}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.prod{background:var(--paper);border:1px solid var(--stroke);border-radius:20px;overflow:hidden;transition:transform .16s, box-shadow .16s;display:flex;flex-direction:column;}
+.prod:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+.prod .ph{height:170px;position:relative;background:var(--cream-2);}
+.prod .cat-tag{position:absolute;top:12px;left:12px;z-index:2;background:rgba(27,51,38,.86);color:#fff;font-size:12px;font-weight:600;padding:4px 11px;border-radius:999px;backdrop-filter:blur(4px);}
+.prod .body{padding:16px 17px 19px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.prod h3{font-size:18px;color:var(--forest);}
+.prod .desc{font-size:13.5px;color:var(--muted);flex:1;}
+.prod .row{display:flex;align-items:center;justify-content:space-between;margin-top:4px;}
+.prod .price{font-family:var(--display);font-weight:600;color:var(--amber);font-size:15px;}
+.prod .pick{font-size:13px;font-weight:600;color:var(--leaf);display:inline-flex;align-items:center;gap:5px;}
+.prod .tags{display:flex;gap:6px;flex-wrap:wrap;}
+.prod .strain{font-size:11.5px;font-weight:600;color:var(--muted);border:1px solid var(--stroke);padding:2px 9px;border-radius:999px;}
+.prod-note{text-align:center;margin-top:28px;color:var(--muted);font-size:14.5px;}
+
+/* ---------- reviews ---------- */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.rcard{background:#fff;border:1px solid var(--stroke);border-radius:20px;padding:26px 24px;display:flex;flex-direction:column;gap:14px;}
+.stars{color:var(--amber);letter-spacing:3px;font-size:16px;}
+.rcard p{font-size:15.5px;color:var(--ink);line-height:1.6;}
+.rcard .who{display:flex;align-items:center;gap:12px;margin-top:auto;}
+.rcard .who .av{width:44px;height:44px;border-radius:50%;background:var(--cream-2);border:1px solid var(--stroke);flex:0 0 auto;overflow:hidden;}
+.rcard .who .nm{font-weight:600;color:var(--forest);font-size:15px;line-height:1.2;}
+.rcard .who .role{font-size:13px;color:var(--muted);}
+
+/* ---------- faq ---------- */
+.faq-sec{background:var(--forest);color:#e7eee0;}
+.faq-sec .head h2{color:#fff;}
+.faq-sec .head p{color:#b8c7ad;}
+.faq-sec .kicker{color:var(--leaf-2);}
+.faq{max-width:780px;margin:0 auto;}
+.qa{border:1px solid rgba(255,255,255,.16);border-radius:16px;margin-bottom:13px;overflow:hidden;background:rgba(255,255,255,.04);transition:background .2s;}
+.qa[open]{background:rgba(255,255,255,.07);}
+.qa summary{list-style:none;cursor:pointer;padding:19px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:600;font-size:17px;color:#fff;}
+.qa summary::-webkit-details-marker{display:none;}
+.qa .sign{width:26px;height:26px;flex:0 0 auto;border-radius:50%;border:1.5px solid var(--leaf-2);display:grid;place-items:center;color:var(--leaf-2);transition:transform .25s;font-size:18px;line-height:1;}
+.qa[open] .sign{transform:rotate(45deg);}
+.qa .ans{padding:0 22px 20px;color:#c4d2ba;font-size:15.5px;line-height:1.65;}
+
+/* ---------- final cta ---------- */
+.cta-final{padding:64px 0;text-align:center;background:
+  radial-gradient(80% 130% at 50% 0%, #eef4e6 0%, transparent 60%), var(--paper);}
+.cta-final h2{font-size:clamp(30px,4vw,46px);color:var(--forest);max-width:14em;margin:0 auto 16px;}
+.cta-final p{color:var(--muted);max-width:32em;margin:0 auto 30px;font-size:18px;}
+
+/* ---------- footer ---------- */
+footer{background:#14271d;color:#9fb196;padding:44px 0 96px;font-size:14.5px;}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;}
+footer .logo{color:#fff;margin-bottom:14px;}
+footer h4{color:#fff;font-family:var(--sans);font-size:15px;margin:0 0 14px;font-weight:600;}
+footer a{display:block;padding:5px 0;color:#9fb196;}
+footer a:hover{color:var(--leaf-2);}
+footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);margin-top:14px;padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:#7d8e75;}
+.age-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px 12px;color:#cfe;font-weight:600;}
+
+/* ---------- sticky line bar ---------- */
+.sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:45;transform:translateY(120%);transition:transform .35s cubic-bezier(.4,1.2,.5,1);}
+.sticky-bar.show{transform:translateY(0);}
+.sticky-bar .inner{max-width:1180px;margin:0 auto;background:var(--forest);color:#fff;border-radius:18px 18px 0 0;box-shadow:0 -10px 30px -12px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:15px 24px;}
+.sticky-bar .txt strong{font-family:var(--display);font-size:18px;display:block;}
+.sticky-bar .txt span{font-size:13.5px;color:#bccdb3;}
+
+/* ---------- age gate ---------- */
+.agegate{position:fixed;inset:0;z-index:100;background:
+  radial-gradient(120% 90% at 50% -10%, #294d39 0%, #122016 70%);
+  display:grid;place-items:center;padding:24px;transition:opacity .4s, visibility .4s;}
+.agegate.hide{opacity:0;visibility:hidden;}
+.age-card{max-width:430px;width:100%;background:rgba(255,255,255,.97);border-radius:24px;padding:42px 36px;text-align:center;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);}
+.age-card .mark{width:58px;height:58px;border-radius:16px;background:var(--leaf);display:grid;place-items:center;color:#fff;margin:0 auto 20px;}
+.age-card h2{font-size:26px;color:var(--forest);margin-bottom:10px;}
+.age-card p{color:var(--muted);font-size:15px;margin-bottom:26px;}
+.age-actions{display:flex;flex-direction:column;gap:11px;}
+.age-actions .btn{justify-content:center;width:100%;font-size:16.5px;padding:15px;}
+.age-fine{margin-top:20px;font-size:12.5px;color:#9aa593;line-height:1.5;}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .feat-grid{grid-template-columns:repeat(2,1fr);}
+  .prod-grid{grid-template-columns:repeat(2,1fr);}
+  .rev-grid{grid-template-columns:1fr;}
+  .hero .wrap{grid-template-columns:1fr;gap:36px;}
+  .hero-img{height:380px;}
+  footer .wrap{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:680px){
+  body{font-size:16px;}
+  .nav-links{display:none;}
+  .nav .nav-cta-wrap{margin-left:auto;}
+  .pad{padding:60px 0;}
+  .feat-grid,.prod-grid{grid-template-columns:1fr;}
+  .strip .wrap{justify-content:flex-start;gap:14px 26px;}
+  .float-card.rate{right:6px;} .float-card.rev{left:6px;}
+  footer .wrap{grid-template-columns:1fr;}
+  .sticky-bar .txt span{display:none;}
+  .hero{padding-top:110px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <span class="mark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22C12 17 12 14 12 11M12 11C9.5 9 5 9.5 3 12C6 13 9.5 13.5 12 11ZM12 11C14.5 9 19 9.5 21 12C18 13 14.5 13.5 12 11ZM12 11C10.5 8 10.5 4 12 2C13.5 4 13.5 8 12 11ZM12 13C9.5 12 6 12.5 4 15C6.5 16 10 16 12 13ZM12 13C14.5 12 18 12.5 20 15C17.5 16 14 16 12 13Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      เขียวสุข
+    </a>
+    <div class="nav-links">
+      <a href="#why">ทำไมต้องเรา</a>
+      <a href="#products">สินค้า</a>
+      <a href="#reviews">รีวิว</a>
+      <a href="#faq">คำถามบ่อย</a>
+    </div>
+    <div class="nav-cta-wrap">
+      <a class="btn btn-line" href="#" data-line>
+        <svg class="line-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11.05c0 3.98 3.56 7.31 8.37 7.94.33.07.77.22.88.5.1.26.07.66.03.92l-.14.85c-.04.26-.2 1.02.9.56 1.1-.46 5.9-3.48 8.05-5.96C21.5 14.2 22 12.7 22 11.05 22 6.6 17.5 3 12 3Z"/></svg>
+        แอดไลน์
+      </a>
+    </div>
+  </div>
+</nav>
+
+<span id="top"></span>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow"><span class="pulse"></span> ตอบไว 24 ชม. · ส่งทั่วไทย</span>
+      <h1>เติมความสุข<br>ดับความเครียด<br><span class="hl">คลิกเดียวถึงหน้าบ้าน</span></h1>
+      <p class="lead">ร้านกัญชาคัดเกรดพรีเมียม ดอกแห้งคุณภาพและอุปกรณ์ครบครัน — ปรึกษาฟรี เลือกง่าย ส่งตรงถึงมือคุณ ทักไลน์ได้เลย</p>
+      <div class="hero-cta">
+        <a class="btn btn-line" href="#" data-line>
+          <svg class="line-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11.05c0 3.98 3.56 7.31 8.37 7.94.33.07.77.22.88.5.1.26.07.66.03.92l-.14.85c-.04.26-.2 1.02.9.56 1.1-.46 5.9-3.48 8.05-5.96C21.5 14.2 22 12.7 22 11.05 22 6.6 17.5 3 12 3Z"/></svg>
+          แอดไลน์สั่งซื้อ
+        </a>
+        <a class="btn btn-ghost" href="#products">ดูสินค้าทั้งหมด</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hbadge"><span class="tick">✓</span> คัดเกรดพรีเมียม</div>
+        <div class="hbadge"><span class="tick">✓</span> ส่งไวทันใจ</div>
+        <div class="hbadge"><span class="tick">✓</span> ผู้ใหญ่ 20+ เท่านั้น</div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <svg class="leaf-deco" style="top:-30px;right:30px;width:90px;transform:rotate(15deg)" viewBox="0 0 24 24" fill="none"><path d="M12 22C12 17 12 14 12 11M12 11C9.5 9 5 9.5 3 12C6 13 9.5 13.5 12 11ZM12 11C14.5 9 19 9.5 21 12C18 13 14.5 13.5 12 11ZM12 11C10.5 8 10.5 4 12 2C13.5 4 13.5 8 12 11Z" stroke="currentColor" stroke-width="1.2"/></svg>
+      <div class="hero-img">
+        <!-- แทนที่ด้วยรูปจริง: <img src="images/hero.jpg" alt="บรรยากาศร้าน"> -->
+        <div class="img-fill">
+          <svg class="ph-ic" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="ph-cap">รูป Hero (บรรยากาศร้าน / สินค้าชูโรง)</span>
+        </div>
+      </div>
+      <div class="float-card rate">
+        <span class="big">4.9</span>
+        <div style="font-size:13px;line-height:1.25">
+          <div class="stars" style="font-size:13px">★★★★★</div>
+          <span style="color:var(--muted);font-weight:500">จากรีวิวจริง</span>
+        </div>
+      </div>
+      <div class="float-card rev">
+        <div class="avatars"><span></span><span></span><span></span><span></span></div>
+        <span>ลูกค้ากว่า 2,000+ คน</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== TRUST STRIP ===================== -->
+<section class="strip">
+  <div class="wrap">
+    <div class="item"><span class="num">2,000+</span> ลูกค้าไว้วางใจ</div>
+    <div class="item"><span class="ic">🌿</span> ดอกแห้งคัดเกรด</div>
+    <div class="item"><span class="ic">⚡</span> ส่งไวภายในวัน</div>
+    <div class="item"><span class="ic">💬</span> ปรึกษาฟรีทางไลน์</div>
+    <div class="item"><span class="ic">🔒</span> ข้อมูลเป็นความลับ</div>
+  </div>
+</section>
+
+<!-- ===================== WHY US ===================== -->
+<section class="pad" id="why">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">ทำไมต้องเรา</span>
+      <h2>เลือกซื้อกับเรา สบายใจกว่า</h2>
+      <p>เราคัดคุณภาพทุกขั้นตอน เพื่อให้ทุกครั้งที่สั่งคือประสบการณ์ที่ดี</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="ficon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 5.6L20.5 8l-4.5 4 1.2 6.3L12 15.8 6.8 18.3 8 12 3.5 8l5.9-.4L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <h3>คัดเกรดพรีเมียม</h3>
+        <p>เลือกเฉพาะดอกแห้งคุณภาพ กลิ่นหอม คัดสายพันธุ์มาอย่างดี</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ficon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 13h11l-1.5-9L3 13zm0 0v4h2a2 2 0 104 0h4a2 2 0 104 0h2v-4l-3-4h-4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <h3>ส่งไว ทันใจ</h3>
+        <p>จัดส่งรวดเร็วทั่วประเทศ แพ็กมิดชิด ข้อมูลลูกค้าเป็นความลับ</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ficon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8 8 0 11-3.4-6.5M21 4v4h-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 12l2.2 2.2L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>ปรึกษาฟรี</h3>
+        <p>ไม่รู้จะเลือกอะไร ทักไลน์มาได้เลย แอดมินแนะนำให้ฟรีตลอด</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ficon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <h3>ของแท้ ราคาจริง</h3>
+        <p>สินค้าตรงปก ราคาชัดเจน ไม่บวกซ่อน รีวิวจากลูกค้าจริง</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRODUCTS ===================== -->
+<section class="pad prod-sec" id="products">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">เมนูเด่น</span>
+      <h2>สินค้าแนะนำ</h2>
+      <p>ตัวอย่างสินค้ายอดนิยม — รายละเอียดเพิ่มเติมและสั่งซื้อ ทักไลน์ได้เลย</p>
+    </div>
+
+    <div class="filters reveal">
+      <button class="filter" data-filter="all" aria-pressed="true">ทั้งหมด</button>
+      <button class="filter" data-filter="flower" aria-pressed="false">🌿 ดอกแห้ง</button>
+      <button class="filter" data-filter="gear" aria-pressed="false">🛠️ อุปกรณ์</button>
+    </div>
+
+    <div class="prod-grid" id="prodGrid">
+      <!-- flower -->
+      <article class="prod reveal" data-cat="flower">
+        <div class="ph"><span class="cat-tag">ดอกแห้ง</span>
+          <!-- <img src="images/p1.jpg" alt="สายพันธุ์ ก."> -->
+          <div class="img-fill"><span class="ph-cap">รูปสินค้า</span></div>
+        </div>
+        <div class="body">
+          <h3>สายพันธุ์ ก. (ตัวอย่าง)</h3>
+          <p class="desc">กลิ่นหอมนุ่ม ผ่อนคลาย เหมาะกับช่วงพักผ่อนปลายวัน</p>
+          <div class="tags"><span class="strain">หอมนุ่ม</span><span class="strain">ผ่อนคลาย</span></div>
+          <div class="row"><span class="price">สอบถามราคา</span><span class="pick">เลือก →</span></div>
+        </div>
+      </article>
+      <article class="prod reveal" data-cat="flower">
+        <div class="ph"><span class="cat-tag">ดอกแห้ง</span>
+          <!-- <img src="images/p2.jpg" alt="สายพันธุ์ ข."> -->
+          <div class="img-fill"><span class="ph-cap">รูปสินค้า</span></div>
+        </div>
+        <div class="body">
+          <h3>สายพันธุ์ ข. (ตัวอย่าง)</h3>
+          <p class="desc">โทนสดชื่น กระปรี้กระเปร่า เหมาะกับกลางวันสบายๆ</p>
+          <div class="tags"><span class="strain">สดชื่น</span><span class="strain">ตื่นตัว</span></div>
+          <div class="row"><span class="price">สอบถามราคา</span><span class="pick">เลือก →</span></div>
+        </div>
+      </article>
+      <article class="prod reveal" data-cat="flower">
+        <div class="ph"><span class="cat-tag">ดอกแห้ง</span>
+          <!-- <img src="images/p3.jpg" alt="สายพันธุ์ ค."> -->
+          <div class="img-fill"><span class="ph-cap">รูปสินค้า</span></div>
+        </div>
+        <div class="body">
+          <h3>สายพันธุ์ ค. (ตัวอย่าง)</h3>
+          <p class="desc">บาลานซ์กำลังดี เริ่มต้นง่าย เป็นที่นิยมของลูกค้าใหม่</p>
+          <div class="tags"><span class="strain">สมดุล</span><span class="strain">ยอดนิยม</span></div>
+          <div class="row"><span class="price">สอบถามราคา</span><span class="pick">เลือก →</span></div>
+        </div>
+      </article>
+      <!-- gear -->
+      <article class="prod reveal" data-cat="gear">
+        <div class="ph"><span class="cat-tag">อุปกรณ์</span>
+          <!-- <img src="images/p4.jpg" alt="บ้องแก้ว"> -->
+          <div class="img-fill"><span class="ph-cap">รูปสินค้า</span></div>
+        </div>
+        <div class="body">
+          <h3>บ้องแก้ว (ตัวอย่าง)</h3>
+          <p class="desc">งานแก้วหนา ทำความสะอาดง่าย ดีไซน์เรียบหรู</p>
+          <div class="tags"><span class="strain">แก้วหนา</span><span class="strain">พกพา</span></div>
+          <div class="row"><span class="price">สอบถามราคา</span><span class="pick">เลือก →</span></div>
+        </div>
+      </article>
+      <article class="prod reveal" data-cat="gear">
+        <div class="ph"><span class="cat-tag">อุปกรณ์</span>
+          <!-- <img src="images/p5.jpg" alt="เครื่องบด"> -->
+          <div class="img-fill"><span class="ph-cap">รูปสินค้า</span></div>
+        </div>
+        <div class="body">
+          <h3>เครื่องบด (ตัวอย่าง)</h3>
+          <p class="desc">อะลูมิเนียมเกรดดี คมทน บดละเอียดสม่ำเสมอ</p>
+          <div class="tags"><span class="strain">อลูมิเนียม</span><span class="strain">คมทน</span></div>
+          <div class="row"><span class="price">สอบถามราคา</span><span class="pick">เลือก →</span></div>
+        </div>
+      </article>
+      <article class="prod reveal" data-cat="gear">
+        <div class="ph"><span class="cat-tag">อุปกรณ์</span>
+          <!-- <img src="images/p6.jpg" alt="กระดาษ + ชุดเซ็ต"> -->
+          <div class="img-fill"><span class="ph-cap">รูปสินค้า</span></div>
+        </div>
+        <div class="body">
+          <h3>กระดาษ + ชุดเซ็ต (ตัวอย่าง)</h3>
+          <p class="desc">ชุดอุปกรณ์ครบจบในกล่องเดียว เหมาะเป็นของขวัญ</p>
+          <div class="tags"><span class="strain">ครบเซ็ต</span><span class="strain">คุ้ม</span></div>
+          <div class="row"><span class="price">สอบถามราคา</span><span class="pick">เลือก →</span></div>
+        </div>
+      </article>
+      <article class="prod reveal" data-cat="flower">
+        <div class="ph"><span class="cat-tag">ดอกแห้ง</span>
+          <!-- <img src="images/p7.jpg" alt="เซ็ตทดลอง"> -->
+          <div class="img-fill"><span class="ph-cap">รูปสินค้า</span></div>
+        </div>
+        <div class="body">
+          <h3>เซ็ตทดลอง (ตัวอย่าง)</h3>
+          <p class="desc">รวมหลายสายพันธุ์ในชุดเดียว ลองก่อนตัดสินใจ</p>
+          <div class="tags"><span class="strain">หลายแบบ</span><span class="strain">ลองชิม</span></div>
+          <div class="row"><span class="price">สอบถามราคา</span><span class="pick">เลือก →</span></div>
+        </div>
+      </article>
+      <article class="prod reveal" data-cat="gear">
+        <div class="ph"><span class="cat-tag">อุปกรณ์</span>
+          <!-- <img src="images/p8.jpg" alt="ที่เก็บกลิ่น"> -->
+          <div class="img-fill"><span class="ph-cap">รูปสินค้า</span></div>
+        </div>
+        <div class="body">
+          <h3>ที่เก็บกลิ่น (ตัวอย่าง)</h3>
+          <p class="desc">กระปุกเก็บกลิ่น ปิดสนิท คงความสดใหม่ได้นาน</p>
+          <div class="tags"><span class="strain">กันกลิ่น</span><span class="strain">คงสภาพ</span></div>
+          <div class="row"><span class="price">สอบถามราคา</span><span class="pick">เลือก →</span></div>
+        </div>
+      </article>
+    </div>
+    <p class="prod-note">* รูปและรายละเอียดเป็นตัวอย่างสำหรับวางเลย์เอาต์ — สอบถามสต็อกและราคาจริงทางไลน์</p>
+  </div>
+</section>
+
+<!-- ===================== REVIEWS ===================== -->
+<section class="pad" id="reviews">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">รีวิวจริง</span>
+      <h2>ลูกค้าพูดถึงเรา</h2>
+      <p>เสียงจริงจากลูกค้าที่ไว้วางใจสั่งซื้อกับเรา</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>“ของดีจริง ตรงปก แอดมินตอบไว แนะนำละเอียดมาก ส่งไวด้วย ประทับใจครับ”</p>
+        <div class="who"><div class="av"></div><div><div class="nm">คุณเอ</div><div class="role">ลูกค้าประจำ</div></div></div>
+      </div>
+      <div class="rcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>“สั่งครั้งแรกก็ประทับใจ แพ็กมาเรียบร้อย มิดชิด ราคาคุ้ม จะกลับมาอุดหนุนอีกแน่นอน”</p>
+        <div class="who"><div class="av"></div><div><div class="nm">คุณบี</div><div class="role">ลูกค้าใหม่</div></div></div>
+      </div>
+      <div class="rcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>“ปรึกษาฟรีจริง ไม่กดดันให้ซื้อ แนะนำตามที่เราต้องการ บริการดีมากครับ”</p>
+        <div class="who"><div class="av"></div><div><div class="nm">คุณซี</div><div class="role">ลูกค้าประจำ</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="pad faq-sec" id="faq">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">คำถามที่พบบ่อย</span>
+      <h2>เรื่องที่หลายคนสงสัย</h2>
+      <p>ยังไม่หายสงสัย? ทักไลน์มาถามได้เลย ตอบไว 24 ชม.</p>
+    </div>
+    <div class="faq">
+      <details class="qa reveal" open>
+        <summary>สั่งซื้อยังไง? <span class="sign">+</span></summary>
+        <div class="ans">กดปุ่ม “แอดไลน์” เพื่อเพิ่มเพื่อนในไลน์ จากนั้นทักแชทบอกสินค้าที่สนใจ แอดมินจะแนะนำและสรุปยอดให้ทันที</div>
+      </details>
+      <details class="qa reveal">
+        <summary>มีค่าส่งไหม ส่งพื้นที่ไหนบ้าง? <span class="sign">+</span></summary>
+        <div class="ans">จัดส่งทั่วประเทศ รายละเอียดค่าส่งและระยะเวลาขึ้นกับพื้นที่ สอบถามแอดมินทางไลน์เพื่อความชัดเจน</div>
+      </details>
+      <details class="qa reveal">
+        <summary>ต้องอายุเท่าไหร่ถึงสั่งได้? <span class="sign">+</span></summary>
+        <div class="ans">จำหน่ายเฉพาะผู้ที่มีอายุ 20 ปีบริบูรณ์ขึ้นไปเท่านั้น งดจำหน่ายแก่ผู้เยาว์ สตรีมีครรภ์ และผู้ให้นมบุตร</div>
+      </details>
+      <details class="qa reveal">
+        <summary>ชำระเงินช่องทางไหนได้บ้าง? <span class="sign">+</span></summary>
+        <div class="ans">รองรับการโอนผ่านธนาคาร/พร้อมเพย์ รายละเอียดแอดมินจะแจ้งในแชทเมื่อยืนยันคำสั่งซื้อ</div>
+      </details>
+      <details class="qa reveal">
+        <summary>ข้อมูลของฉันเป็นความลับไหม? <span class="sign">+</span></summary>
+        <div class="ans">เรารักษาความเป็นส่วนตัวของลูกค้าทุกราย แพ็กสินค้ามิดชิด ไม่ระบุรายละเอียดสินค้าบนกล่อง</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>พร้อมสั่งแล้ว? ทักไลน์เลย</h2>
+    <p>แอดไลน์เพื่อสอบถามสินค้า ราคา และโปรโมชั่น — แอดมินตอบไวตลอด 24 ชั่วโมง</p>
+    <a class="btn btn-line" href="#" data-line style="font-size:18px;padding:16px 32px">
+      <svg class="line-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11.05c0 3.98 3.56 7.31 8.37 7.94.33.07.77.22.88.5.1.26.07.66.03.92l-.14.85c-.04.26-.2 1.02.9.56 1.1-.46 5.9-3.48 8.05-5.96C21.5 14.2 22 12.7 22 11.05 22 6.6 17.5 3 12 3Z"/></svg>
+      แอดไลน์ทันที
+    </a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logo"><span class="mark" style="width:30px;height:30px">🌿</span> เขียวสุข</div>
+      <p style="max-width:26em">เติมความสุข ดับความเครียด คลิกเดียวถึงหน้าบ้าน — ร้านกัญชาคัดเกรดสำหรับผู้ใหญ่ 20+</p>
+      <span class="age-chip" style="margin-top:16px">🔞 20+ เท่านั้น</span>
+    </div>
+    <div>
+      <h4>เมนู</h4>
+      <a href="#why">ทำไมต้องเรา</a>
+      <a href="#products">สินค้า</a>
+      <a href="#reviews">รีวิว</a>
+      <a href="#faq">คำถามบ่อย</a>
+    </div>
+    <div>
+      <h4>ติดต่อ</h4>
+      <a href="#" data-line>แอดไลน์ (LINE OA)</a>
+      <a href="#">โทรสอบถาม</a>
+      <a href="#">เวลาทำการ 10:00–22:00</a>
+    </div>
+    <div class="legal">
+      <span>© 2569 เขียวสุข · สงวนลิขสิทธิ์</span>
+      <span>ใช้อย่างรับผิดชอบ · งดจำหน่ายแก่ผู้มีอายุต่ำกว่า 20 ปี สตรีมีครรภ์ และผู้ให้นมบุตร</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== STICKY LINE BAR ===================== -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="inner">
+    <div class="txt">
+      <strong>สนใจสั่งซื้อ?</strong>
+      <span>ทักไลน์ แอดมินตอบไว 24 ชม.</span>
+    </div>
+    <a class="btn btn-line" href="#" data-line>
+      <svg class="line-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11.05c0 3.98 3.56 7.31 8.37 7.94.33.07.77.22.88.5.1.26.07.66.03.92l-.14.85c-.04.26-.2 1.02.9.56 1.1-.46 5.9-3.48 8.05-5.96C21.5 14.2 22 12.7 22 11.05 22 6.6 17.5 3 12 3Z"/></svg>
+      แอดไลน์ทันที
+    </a>
+  </div>
+</div>
+
+<script>
+// ----- nav solid on scroll -----
+const nav = document.getElementById('nav');
+const bar = document.getElementById('stickyBar');
+function onScroll(){
+  nav.classList.toggle('solid', window.scrollY > 30);
+  bar.classList.toggle('show', window.scrollY > 620);
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+// ----- product filter -----
+const grid = document.getElementById('prodGrid');
+document.querySelectorAll('.filter').forEach(f=>{
+  f.addEventListener('click',()=>{
+    document.querySelectorAll('.filter').forEach(x=>x.setAttribute('aria-pressed', x===f));
+    const cat = f.dataset.filter;
+    grid.querySelectorAll('.prod').forEach(p=>{
+      const show = cat==='all' || p.dataset.cat===cat;
+      p.style.display = show ? '' : 'none';
+    });
+  });
+});
+
+// ----- scroll reveal (fallback: show all if observer unsupported) -----
+if('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+}
+
+// ----- LINE links (swap with real LINE OA url) -----
+const LINE_URL = ''; // <-- ใส่ลิงก์ LINE OA จริงที่นี่ เช่น https://line.me/R/ti/p/@yourid
+document.querySelectorAll('[data-line]').forEach(a=>{
+  if(LINE_URL){ a.setAttribute('href', LINE_URL); a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
+  else { a.addEventListener('click', e=>{ if(a.getAttribute('href')==='#'){ e.preventDefault(); alert('ใส่ลิงก์ LINE OA จริงในตัวแปร LINE_URL เพื่อใช้งานปุ่มนี้'); } }); }
+});
+</script>
+</body>
+</html>
